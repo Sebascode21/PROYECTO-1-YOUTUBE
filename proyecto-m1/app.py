@@ -8,6 +8,7 @@
 # 1.1 Importa streamlit y pandas.
 # 1.2 Pon el nombre de la pestaña del navegador, la página a todo lo ancho y un título que diga de qué va tu proyecto.
 # 1.3 Debajo, una o dos frases con st.write: qué pregunta responde la app y de dónde salen los datos.
+from pathlib import Path
 import streamlit as st
 import pandas as pd
 
@@ -25,10 +26,10 @@ st.write("¿Que hace que un video llegue a tendencias en Youtube Mexico?")
 # 2.1 La función cargar_datos, con @st.cache_data encima, que lea "datos/datos_limpios.csv" y lo devuelva.
 #     La limpieza ya está hecha en el cuaderno, así que la función solo lee y devuelve, como en la carta del bar.
 # 2.2 Llama a la función y guarda la tabla en una variable con el nombre de tus datos.
+RUTA= Path(__file__).parent/"datos"/"datos_limpios.csv"
 @st.cache_data
 def cargar_datos():
-    videos= pd.read_csv("datos/datos_limpios.csv")
-    return videos
+    return pd.read_csv(RUTA)
 
 videos= cargar_datos()
  
