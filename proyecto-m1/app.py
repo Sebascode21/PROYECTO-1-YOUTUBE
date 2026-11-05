@@ -128,7 +128,7 @@ with tab3:
     parecidos=videos[videos["visualizaciones"]>=mis_visual]
     sin_etiquetas=parecidos["etiquetas"].isna()|(parecidos["etiquetas"]=="[none]")
     if mis_etiquetas=="si":
-        parecidos=parecidos[sin_etiquetas]
+        parecidos=parecidos[~sin_etiquetas]
     else:
         parecidos=parecidos[sin_etiquetas]
 
@@ -141,10 +141,12 @@ with tab3:
     mediana_visual=videos["visualizaciones"].median()
 
     st.metric("Videos como el tuyo",len(parecidos))
-    st.metric("Mediana de visualizaciones como tu video", int(visualizacion))
-    st.metric("mediana de todos los videos", int(mediana_visual))
+    st.metric("Mediana de visualizaciones de videos parecidos", int(visualizacion))
+   
 
-    if visualizacion >=mediana_visual:
+    umbral_viral=500000
+
+    if visualizacion >=umbral_viral:
         st.success("Tu video es viral!")
     else:
         st.error("Tu video no es viral")
