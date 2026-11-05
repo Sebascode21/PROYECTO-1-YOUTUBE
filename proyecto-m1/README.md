@@ -1,6 +1,6 @@
 # PROYECTO 1 YOUTUBE MX
 
-Es un estudio sobre los ddatos de los videos virales de Mexico para aquellas personas que quieran ver las metricas para ver si su video es viral.
+Es un estudio sobre los datos de los videos virales de Mexico para aquellas personas que quieran ver las metricas para ver si su video es viral.
 
 ## La pregunta
 ¿Cuáles son los videos mas virales de Mexico?
